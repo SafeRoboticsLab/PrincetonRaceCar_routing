@@ -24,25 +24,25 @@ def linestring_to_marker(line_string: PyLineString):
     def white_dashed(marker):
         marker.type = Marker.LINE_LIST
         
-        marker.scale.x = 0.01
+        marker.scale.x = 0.02
         marker.scale.y = 0
         marker.scale.z = 0
         
-        marker.color.r = 255.0/255.0
-        marker.color.g = 255.0/255.0
-        marker.color.b = 255.0/255.0
+        marker.color.r = 96.0/255.0
+        marker.color.g = 96.0/255.0
+        marker.color.b = 96.0/255.0
         marker.color.a = 0.5
         
     def white_solid(marker):
         marker.type = Marker.LINE_STRIP
         
-        marker.scale.x = 0.01
+        marker.scale.x = 0.02
         marker.scale.y = 0
         marker.scale.z = 0
         
-        marker.color.r = 255.0/255.0
-        marker.color.g = 255.0/255.0
-        marker.color.b = 255.0/255.0
+        marker.color.r = 96.0/255.0
+        marker.color.g = 96.0/255.0
+        marker.color.b = 96.0/255.0
         marker.color.a = 1.0
 
     def virtual(marker):
@@ -52,9 +52,9 @@ def linestring_to_marker(line_string: PyLineString):
         marker.scale.y = 0.02      
         marker.scale.z = 0
         
-        marker.color.r = 192.0/255.0
-        marker.color.g = 192.0/255.0
-        marker.color.b = 192.0/255.0
+        marker.color.r = 150.0/255.0
+        marker.color.g = 150.0/255.0
+        marker.color.b = 150.0/255.0
         marker.color.a = 0.4
     
     # Main function
