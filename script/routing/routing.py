@@ -53,7 +53,11 @@ class Routing:
         
     def plan_srv_cb(self, req):
         response = PlanResponse()
-        response.path = self.plan_route(req.start, req.goal)
+        planned_path = self.plan_route(req.start, req.goal)
+        response.path = planned_path
+        if response.path is not None:
+            planned_path.header.frame_id = 'map'
+            self.path_pub.publish(planned_path)
         return response 
         
     def odom_callback(self, odom_msg):
