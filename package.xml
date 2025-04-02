@@ -1,24 +1,54 @@
 <?xml version="1.0"?>
-<package format="2">
+<!--Changed package format from "2" to "3". ROS2 requires format="3" for its package.xml files.-->
+<package format="3">
   <name>racecar_routing</name>
   <version>0.1.0</version>
   <description>The interface package for Princeton Race Car</description>
 
   <maintainer email="zixuz@princeton.edu">Zixu Zhang</maintainer>
   <license>BSD</license>
+  <author>Zixu Zhang</author>
 
-  <author >Zixu Zhang</author>
+  <!-- Changed the build tool dependency from catkin (ROS1) to ament_cmake (ROS2).
+    ROS2 uses the ament build system rather than catkin.  -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <!--Changed dependency from rospy (ROS1 Python client library) to rclpy (ROS2 Python client library).
+    In ROS2, rclpy provides the ROS client library for Python.  -->
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rclpy</depend>
 
-  <depend>rospy</depend>
+  <!--
+    std_msgs remains unchanged since it exists in both ROS1 and ROS2.
+  -->
   <depend>std_msgs</depend>
+
+  <!-- The dependency for racecar_msgs remains commented out as in the original file. -->
+
   <!-- <depend>racecar_msgs</depend> -->
+
+  <!--
+    tf2 is available in ROS2.
+  -->
   <depend>tf2</depend>
-  <depend>dynamic_reconfigure</depend>
+
+  <!--
+    dynamic_reconfigure is a ROS1 package used for runtime parameter tuning.
+    ROS2 integrates parameter handling into rclpy/rclcpp and does not have a direct equivalent.
+    Therefore, this dependency is removed (or commented out) so that the package doesn't
+    try to depend on a non-existent ROS2 package.
+  -->
+  <!-- <depend>dynamic_reconfigure</depend> -->
+
+  <!--lanelet2 is available in ROS2. This dependency remains unchanged.-->
   <depend>lanelet2</depend>
-  <build_depend>message_generation</build_depend>
-  <exec_depend>message_runtime</exec_depend>
+
+  <!--
+    In ROS1, message generation is handled by message_generation and message_runtime.
+    In ROS2, these functionalities are provided by rosidl_default_generators and rosidl_default_runtime.
+    We update the build and execution dependencies accordingly.
+  -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
 
 </package>
