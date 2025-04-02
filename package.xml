@@ -1,46 +1,42 @@
 <?xml version="1.0"?>
-<!--Changed package format from "2" to "3". ROS2 requires format="3" for its package.xml files.-->
 <package format="3">
   <name>racecar_routing</name>
   <version>0.1.0</version>
-  <description>The interface package for Princeton Race Car</description>
+  <description>ROS2-based routing system using Lanelet2 for autonomous racecar navigation.</description>
 
   <maintainer email="zixuz@princeton.edu">Zixu Zhang</maintainer>
-  <license>BSD</license>
   <author>Zixu Zhang</author>
+  <license>BSD</license>
 
-  <!-- Changed the build tool dependency from catkin (ROS1) to ament_cmake (ROS2).
-    ROS2 uses the ament build system rather than catkin.  -->
+  <!-- Build system -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <!--Changed dependency from rospy (ROS1 Python client library) to rclpy (ROS2 Python client library).
-    In ROS2, rclpy provides the ROS client library for Python.  -->
-
+  <!-- Core ROS 2 dependencies -->
   <depend>rclpy</depend>
-
-  <!--
-    std_msgs remains unchanged since it exists in both ROS1 and ROS2.
-  -->
   <depend>std_msgs</depend>
-
-
-  <!-- <depend>racecar_msgs</depend> -->
-  <!--
-    tf2 is available in ROS2.
-  -->
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
   <depend>tf2</depend>
-  <!--
-    dynamic_reconfigure is a ROS1 package used for runtime parameter tuning.
-    ROS2 integrates parameter handling into rclpy/rclcpp and does not have a direct equivalent. Removed. -->
 
-  <!--lanelet2 is available in ROS2. This dependency remains unchanged.-->
+  <!-- Lanelet2 (must be available in the ROS 2 environment) -->
   <depend>lanelet2</depend>
 
-  <!--
-    In ROS1, message generation is handled by message_generation and message_runtime.
-    In ROS2, these functionalities are provided by rosidl_default_generators and rosidl_default_runtime.
-  -->
+  <!-- Message filters for synchronized subscription -->
+  <depend>message_filters</depend>
+
+  <!-- Optional: if using rosidl for custom message generation -->
   <build_depend>rosidl_default_generators</build_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
 
+  <!-- Launch file parsing (optional, useful for launch testing) -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- Python dependency declaration (if you were using ament_python) -->
+  <!-- <exec_depend>python3</exec_depend> -->
+
+  <export>
+    <!-- Nothing to export for now -->
+  </export>
 </package>
