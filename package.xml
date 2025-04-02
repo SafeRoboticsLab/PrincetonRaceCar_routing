@@ -23,22 +23,15 @@
   -->
   <depend>std_msgs</depend>
 
-  <!-- The dependency for racecar_msgs remains commented out as in the original file. -->
 
   <!-- <depend>racecar_msgs</depend> -->
-
   <!--
     tf2 is available in ROS2.
   -->
   <depend>tf2</depend>
-
   <!--
     dynamic_reconfigure is a ROS1 package used for runtime parameter tuning.
-    ROS2 integrates parameter handling into rclpy/rclcpp and does not have a direct equivalent.
-    Therefore, this dependency is removed (or commented out) so that the package doesn't
-    try to depend on a non-existent ROS2 package.
-  -->
-  <!-- <depend>dynamic_reconfigure</depend> -->
+    ROS2 integrates parameter handling into rclpy/rclcpp and does not have a direct equivalent. Removed. -->
 
   <!--lanelet2 is available in ROS2. This dependency remains unchanged.-->
   <depend>lanelet2</depend>
@@ -46,7 +39,6 @@
   <!--
     In ROS1, message generation is handled by message_generation and message_runtime.
     In ROS2, these functionalities are provided by rosidl_default_generators and rosidl_default_runtime.
-    We update the build and execution dependencies accordingly.
   -->
   <build_depend>rosidl_default_generators</build_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
