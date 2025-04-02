@@ -119,7 +119,6 @@ def get_ros_param(node, param_name, default):
     if node.has_parameter(param_name):
         return node.get_parameter(param_name).value
     else:
-        node.get_logger().warn(
-            "Parameter '%s' not found, using default: %s", param_name, default
-        )
+        node.get_logger().warn(f"Parameter '{param_name}' not found, using default: {default}")
+
         return default
